@@ -27,11 +27,15 @@ function presale() {
     tokenName: string;
     usdtbalance: ethers.BigNumber;
     allowance: ethers.BigNumber;
+    tokensForSale: ethers.BigNumber;
+    salePrice: ethers.BigNumber;
   }>({
     address: "-",
     tokenName: "QNTFI",
     usdtbalance: BigNumber.from(0),
     allowance: BigNumber.from(0),
+    tokensForSale: BigNumber.from(0),
+    salePrice: BigNumber.from(0),
   });
 
   const [vestInfo, setVestInfo] = useState<{
@@ -109,6 +113,7 @@ function presale() {
       setOutputValue("0");
     }
   }
+  
 
   function changeNotificationContent(
     title: NotificationContent["title"],
@@ -192,6 +197,8 @@ function presale() {
         tokenName: "QNTFI",
         usdtbalance: await USDT.balanceOf(address),
         allowance: await USDT.allowance(address, SEED.address),
+        tokensForSale: await VEST.tokensForSale(),
+        salePrice: await VEST.salePrice(),
       });
       console.log("Contract Info: ", contractInfo);
     } catch (error) {
@@ -261,7 +268,7 @@ function presale() {
           {/* Holdings */}
           <div className="my-3 mx-7 min-h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
             {/* Title */}
-            <div className="mb-2 text-xl font-bold">Tokens Vested</div>
+            <div className="mb-2 text-xl font-bold">Your Vested Tokens</div>
             <div>
               <div className="flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
@@ -269,7 +276,7 @@ function presale() {
                 </span>
                 <span className="text-right">
                   {
-                    (+ethers.utils.formatUnits(vestInfo.amount, 1)).toLocaleString()
+                    (+ethers.utils.formatUnits(vestInfo.amount, 18)).toLocaleString()
                   }{" "}
                   QNTFI
                 </span>
@@ -277,11 +284,35 @@ function presale() {
 
               <div className="flex h-full justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Claimed
+                  Eligible to Claim
                 </span>
                 <span className="text-right">
                   {"0 "}
-                  USDT
+                  QNTFI
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* Sale Progress */}
+          <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
+            {/* Title */}
+            <div className="mb-2 text-xl font-bold">Current Sale Event</div>
+            <div>
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Sale Price
+                </span>
+                <span className="text-right">
+                  ${(+ethers.utils.formatUnits(contractInfo.salePrice, 18)).toFixed(3)}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  QNTFI Remaining in Sale
+                </span>
+                <span className="text-right">
+                  {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 500,000
                 </span>
               </div>
             </div>
