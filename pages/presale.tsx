@@ -259,10 +259,23 @@ function presale() {
     <div className="flex w-screen flex-col justify-center bg-black">
       <header className="flex w-full justify-center text-center">
         <div className="prose">
-          <h1 className="text-slate-50">Presale</h1>
+          <h1 className="text-slate-50">QNTFI Token Presale</h1>
         </div>
       </header>
       <main className="flex w-full flex-col items-center justify-center">
+      {/* Information text */}
+        <div className="bg-gray-500">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
+            <div className="max-w-2xl">
+              <p className="text-md mt-5 flex-nowrap text-grey-900 sm:text-xl">
+                The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the toal supply (10 mil) tokens will be sold at 5c each. Participation is open on a first in-first served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.
+              </p>
+              <p className="text-md mt-5 flex-nowrap text-grey-900 sm:text-xl">
+                The 2nd round of the Presale will follow. 30% of the total supply will be sold at $0.1 per QNTFI.
+              </p>
+            </div>
+          </div>
+        </div>
         {/* Cards */}
         <div className="my-10 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
         {/* Sale Progress */}
