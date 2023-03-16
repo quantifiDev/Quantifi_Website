@@ -57,7 +57,7 @@ function GovernancePage() {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   const QNTFI = new ethers.Contract(
-    "0xe003e68Ad41F1F45B946EFBc3E5C47Ad36359395",
+    "0x17b3d925C910933da8BBabB3f8Efe2F4Ba4C936D",
     qntfiABI,
     provider
   );
