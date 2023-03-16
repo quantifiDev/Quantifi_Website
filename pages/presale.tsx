@@ -39,7 +39,7 @@ function presale() {
     usdtbalance: BigNumber.from(0),
     allowance: BigNumber.from(0),
     tokensForSale: BigNumber.from(0),
-    salePrice: BigNumber.from(50000000000000000),
+    salePrice: BigNumber.from(0),
   });
 
   const [vestInfo, setVestInfo] = useState<{
