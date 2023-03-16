@@ -9,7 +9,11 @@ import erc20ABI from "../components/abi/erc20.json";
 import vestingABI from "../components/abi/vesting.json";
 import { useAccount, useProvider } from "wagmi";
 import Notification, { NotificationContent } from "../components/Notification";
-
+import {
+  BlueGradient,
+  PurpleBlueGradientCombined,
+  PurpleGradient,
+} from "../components/svg/GradientCircles";
 function presale() {
   const [showNotification, setNotificationShow] = useState(false);
   const [notificationStatus, setNotificationStatus] =
@@ -264,15 +268,14 @@ function presale() {
       </header>
       <main className="flex w-full flex-col items-center justify-center">
       {/* Information text */}
-        <div className="bg-gray-500">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
-            <div className="max-w-2xl">
-              <p className="text-md mt-5 flex-nowrap text-grey-900 sm:text-xl">
-                The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the toal supply (10 mil) tokens will be sold at 5c each. Participation is open on a first in-first served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.
-              </p>
-            </div>
+        <div className="relative flex min-h-fit snap-start items-center justify-center overflow-x-clip py-32 align-middle">
+        <PurpleBlueGradientCombined className="absolute -z-10 scale-125 animate-pulse-slow sm:scale-100" />
+        <div className="mx-2 text-center align-middle text-gray-200">
+          <div className="mt-3 mr-0 text-center sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-2xl lg:mx-0">
+            <span className="mr-0 drop-shadow">The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the toal supply (10 mil) tokens will be sold at 5c each. Participation is open on a first in-first served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.</span>
           </div>
         </div>
+      </div>
         {/* Cards */}
         <div className="my-10 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
         {/* Sale Progress */}
