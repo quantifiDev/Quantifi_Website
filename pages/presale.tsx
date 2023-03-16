@@ -25,13 +25,11 @@ function presale() {
   const [contractInfo, setContractInfo] = useState<{
     address: ethers.Contract["address"];
     tokenName: string;
-    usdtallowed: ethers.BigNumber;
     usdtbalance: ethers.BigNumber;
     allowance: ethers.BigNumber;
   }>({
     address: "-",
     tokenName: "QNTFI",
-    usdtallowed: BigNumber.from(0),
     usdtbalance: BigNumber.from(0),
     allowance: BigNumber.from(0),
   });
@@ -180,7 +178,6 @@ function presale() {
       setContractInfo({
         address: "-",
         tokenName: "QNTFI",
-        usdtallowed: await SEED.allowed(address),
         usdtbalance: await USDT.balanceOf(address),
         allowance: await USDT.allowance(address, SEED.address),
       });
