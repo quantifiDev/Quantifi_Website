@@ -270,9 +270,6 @@ function presale() {
               <p className="text-md mt-5 flex-nowrap text-grey-900 sm:text-xl">
                 The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the toal supply (10 mil) tokens will be sold at 5c each. Participation is open on a first in-first served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.
               </p>
-              <p className="text-md mt-5 flex-nowrap text-grey-900 sm:text-xl">
-                The 2nd round of the Presale will follow. 30% of the total supply will be sold at $0.1 per QNTFI.
-              </p>
             </div>
           </div>
         </div>
