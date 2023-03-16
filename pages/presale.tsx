@@ -272,7 +272,7 @@ function presale() {
         <PurpleBlueGradientCombined className="absolute scale-125 animate-pulse-slow sm:scale-100" />
         <div className="mx-2 text-center align-middle text-gray-200">
           <div className="mt-3 mr-0 text-center sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-2xl lg:mx-0">
-            <span className="mr-0 drop-shadow">The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the toal supply (10 mil) tokens will be sold at 5c each. Participation is open on a first in-first served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.</span>
+            <span className="mr-0 drop-shadow">The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the total supply (10 mil) tokens will be sold at 5c each. Participation is open on a first-in first-served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.</span>
           </div>
         </div>
       </div>
