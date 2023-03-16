@@ -297,7 +297,7 @@ function presale() {
                   QNTFI Remaining in Sale
                 </span>
                 <span className="text-right">
-                  {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 500,000
+                  {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 10,000,000
                 </span>
               </div>
             </div>
