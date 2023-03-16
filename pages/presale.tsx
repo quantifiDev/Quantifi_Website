@@ -34,6 +34,28 @@ function presale() {
     allowance: BigNumber.from(0),
   });
 
+  const [vestInfo, setVestInfo] = useState<{
+    vestStart: ethers.BigNumber;
+    vestFinish: ethers.BigNumber;
+    amount: ethers.BigNumber;
+    claimed: ethers.BigNumber;
+  }>({
+    vestStart: BigNumber.from(0),
+    vestFinish: BigNumber.from(0),
+    amount: BigNumber.from(0),
+    claimed: BigNumber.from(0),
+  });
+  
+  function getVestingInfo() {
+    console.log("Getting vesting info for: ", address);
+    try {
+      const vestingInfo = VEST.tokensVested(address);
+      console.log("Vesting Info: ", vestingInfo);
+      setVestInfo(vestingInfo);
+    } catch (error) {
+      console.log("Error getting vesting info: ", error);
+    }
+  }
   const [ready, setReady] = useState<boolean>(false);
   useEffect(() => {
     setReady(true);
@@ -235,23 +257,6 @@ function presale() {
       return;
     }
     setOutputValue("");
-  }
-
-  const [vestInfo, setVestInfo] = useState({
-    vestStart: 0,
-    vestFinish: 0,
-    amount: 0,
-    claimed: 0,
-  });
-  function getVestingInfo() {
-    console.log("Getting vesting info for: ", address);
-    try {
-      const vestingInfo = VEST.tokensVested(address);
-      console.log("Vesting Info: ", vestingInfo);
-      setVestInfo(vestingInfo);
-    } catch (error) {
-      console.log("Error getting vesting info: ", error);
-    }
   }
 
   return (
