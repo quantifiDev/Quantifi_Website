@@ -276,8 +276,11 @@ function MyPage() {
           <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:flex lg:justify-between lg:px-8">
             <div className="min-w-0 flex-1">
               <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Quantifi Investor Fund (Deposits Paused Pending Presale)
+                Quantifi Investor Fund
               </h2>
+              <h4 className="text-xl font-bold tracking-tight text-white sm:text-xl lg:text-xl">
+                **Deposits Paused Pending Presale
+              </h4>
             </div>
           </div>
         </div>
