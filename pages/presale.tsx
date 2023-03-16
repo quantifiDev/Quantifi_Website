@@ -262,12 +262,36 @@ function presale() {
         </div>
       </header>
       <main className="flex w-full flex-col items-center justify-center">
-        <div className="mt-4 rounded-md bg-white p-4">
-          <h2>Vest Info</h2>
-          <p>Vesting Started: {vestInfo.vestStart}</p>
-          <p>Vesting Finished: {vestInfo.vestFinish}</p>
-          <p>Vesting Amount: {vestInfo.amount}</p>
-          <p>Vesting Claimed: {vestInfo.claimed}</p>
+        {/* Cards */}
+        <div className="my-10 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
+          {/* Holdings */}
+          <div className="my-3 mx-7 min-h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
+            {/* Title */}
+            <div className="mb-2 text-xl font-bold">Tokens Vested</div>
+            <div>
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Tokens
+                </span>
+                <span className="text-right">
+                  {
+                    (+ethers.utils.formatUnits(vestInfo.amount, 1)).toLocaleString()
+                  }{" "}
+                  QNTFI
+                </span>
+              </div>
+
+              <div className="flex h-full justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Claimed
+                </span>
+                <span className="text-right">
+                  {"0 "}
+                  USDT
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
         <LiquiditySwapCard2
           loading={loading}
