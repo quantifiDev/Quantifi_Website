@@ -41,21 +41,21 @@ function presale() {
     setReady(true);
   }, []);
 
-  const minDeposit = 1000; // this will be updated to actual value
-  const minTopup = 1000; // this will be updated to actual value
+  const minDeposit = 100; // this will be updated to actual value
+  const minTopup = 100; // this will be updated to actual value
   const [loading, setLoading] = useState<boolean>(false); // loading state for button
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
   const provider = useProvider();
 
   const VEST = new ethers.Contract(
-    "0x75cbCF9D4FF9a699542599e29ad366f83C4c5E92",
+    "0xc33fa56be7B09c47467bEC1D03C1CE10f51A4fd5",
     vestingABI,
     provider
   );
 
   const SEED = new ethers.Contract(
-    "0x463eb27921b1372f3d09c822e44c22d41ff28a38",
+    "0x64ae06f97665e5e262783319290ae7f115abed32",
     seedRoundABI,
     provider
   );
@@ -123,7 +123,7 @@ function presale() {
           // Approving
           const transaction = await ERC20connect.approve(
             SEED.address,
-            ethers.utils.parseEther("100000")
+            ethers.utils.parseEther("10000000")
           );
           changeNotificationContent("In progress", "Approval Requested", "loading");
           setNotificationShow(true);
