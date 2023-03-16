@@ -197,8 +197,8 @@ function presale() {
         tokenName: "QNTFI",
         usdtbalance: await USDT.balanceOf(address),
         allowance: await USDT.allowance(address, SEED.address),
-        tokensForSale: await VEST.tokensForSale(),
-        salePrice: await VEST.salePrice(),
+        tokensForSale: await SEED.tokensForSale(),
+        salePrice: await SEED.salePrice(),
       });
       console.log("Contract Info: ", contractInfo);
     } catch (error) {
@@ -265,6 +265,30 @@ function presale() {
       <main className="flex w-full flex-col items-center justify-center">
         {/* Cards */}
         <div className="my-10 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
+        {/* Sale Progress */}
+          <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
+            {/* Title */}
+            <div className="mb-2 text-xl font-bold">Current Sale Event</div>
+            <div>
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Sale Price
+                </span>
+                <span className="text-right">
+                  ${(+ethers.utils.formatUnits(contractInfo.salePrice, 18)).toFixed(3)}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  QNTFI Remaining in Sale
+                </span>
+                <span className="text-right">
+                  {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 500,000
+                </span>
+              </div>
+            </div>
+          </div>
           {/* Holdings */}
           <div className="my-3 mx-7 min-h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
             {/* Title */}
@@ -289,30 +313,6 @@ function presale() {
                 <span className="text-right">
                   {"0 "}
                   QNTFI
-                </span>
-              </div>
-            </div>
-          </div>
-          {/* Sale Progress */}
-          <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
-            {/* Title */}
-            <div className="mb-2 text-xl font-bold">Current Sale Event</div>
-            <div>
-              <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Sale Price
-                </span>
-                <span className="text-right">
-                  ${(+ethers.utils.formatUnits(contractInfo.salePrice, 18)).toFixed(3)}
-                </span>
-              </div>
-
-              <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  QNTFI Remaining in Sale
-                </span>
-                <span className="text-right">
-                  {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 500,000
                 </span>
               </div>
             </div>
