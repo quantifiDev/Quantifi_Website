@@ -46,16 +46,6 @@ function presale() {
     claimed: BigNumber.from(0),
   });
   
-  function getVestingInfo() {
-    console.log("Getting vesting info for: ", address);
-    try {
-      const vestingInfo = VEST.tokensVested(address);
-      console.log("Vesting Info: ", vestingInfo);
-      setVestInfo(vestingInfo);
-    } catch (error) {
-      console.log("Error getting vesting info: ", error);
-    }
-  }
   const [ready, setReady] = useState<boolean>(false);
   useEffect(() => {
     setReady(true);
@@ -223,7 +213,6 @@ function presale() {
   useEffect(() => {
     if (address !== undefined) {
       _setContractInfo();
-      getVestingInfo();
     }
   }, [address]);
 
