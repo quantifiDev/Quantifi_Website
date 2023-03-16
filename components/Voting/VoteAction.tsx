@@ -35,7 +35,7 @@ export function VoteAction({
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
   const provider = useProvider();
-  const GOV = new ethers.Contract("0x506abE228305e35e24b0019C69728f0A5c32A206", govABI, provider);
+  const GOV = new ethers.Contract("0xEe314c48Bf6c68780534ad6AdbDD7Ba994Da4c92", govABI, provider);
 
   function changeNotificationContent(
     title: NotificationContent["title"],
