@@ -58,6 +58,11 @@ function presale() {
     claimed: BigNumber.from(0),
   });
   
+  const [showBuy, setShowBuy] = useState(false);
+  
+  const handleButtonClick = () => {
+    setShowBuy(true);
+  };
   const [ready, setReady] = useState<boolean>(false);
   useEffect(() => {
     setReady(true);
@@ -282,7 +287,7 @@ function presale() {
         </main>
           </div>
           <main className="flex w-full flex-col items-center justify-center">
-      {/* Information text */}
+      {/* Information text
         <div className="relative flex min-h-fit snap-start items-center justify-center overflow-x-clip py-8 align-middle">
         <PurpleBlueGradientCombined className="absolute scale-125 animate-pulse-slow sm:scale-100" />
         <div className="mx-2 text-center align-middle text-gray-200">
@@ -290,29 +295,29 @@ function presale() {
             <span className="mr-0 drop-shadow">The QNTFI Presale Round 1 begins on Wednesday 19 April at 12pm UTC. 5% of the total supply (10 mil) tokens will be sold at $0.05. Participation is open on a first-in first-served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months. <span className="font-bold">Connect Wallet</span> to join or see below for more information.</span>
           </div>
         </div>
-      </div>
+      </div>  */}
         {/* Cards */}
         <div className="my-3 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
         {/* Sale Progress */}
-          <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
+          <div className="my-3 mx-7 text-center h-full w-full max-w-lg overflow-hidden rounded-lg bg-gray-900 px-6 py-4 text-neutral-100 shadow-lg ">
             {/* Title */}
-            <div className="flex justify-between">
-            <span className="mb-2 text-xl font-bold">Status: Presale 1 </span>
-            <span className="text-right mb-2 text-l font-bold">Sale Price: $0.05</span>
+            <div className="flex text-center">
+            <span className="mb-2 text-xl font-bold  w-full">April 19 - Sold Out </span>
             </div>
+            <div className="pt-4 flex text-center">
+            <span className="mb-2 text-xl font-bold  w-full">Presale #1</span>
+            </div>
+            <div className="pt-4 flex text-center">
+            <span className="mb-2 text-xl font-bold  w-full">1 QNTFI = $0.05</span>
+            </div>
+            <div className="pt-4 justify-between">
+          <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
+          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100+1} />
+          </span>
+        </div>
             <div>
-            <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Your Holdings
-                </span>
-                <span className="text-right">
-                {(+ethers.utils.formatUnits(vestInfo.amount, 18)).toLocaleString()
-                  }{" "}
-                  QNTFI
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+              <div className="pt-2 flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
                   QNTFI Sold
                 </span>
                 <span className="text-right">
@@ -320,22 +325,23 @@ function presale() {
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
                   USD Raised
                 </span>
                 <span className="text-right">
                   ${((+ethers.utils.formatUnits(contractInfo.tokensForSale, 18))/20).toFixed(2)} / $500,000
                 </span>
               </div>
-              <div className="justify-between">
-          <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100+1} />
-          </span>
-        </div>
             </div>
           </div>
         </div>
-        <LiquiditySwapCard2
+        <div className="my-5 flex w-full justify-center">
+              <button className={`${showBuy ? 'hidden' : ''} btnAnimated font-lg prose h-14 w-8/12 rounded-2xl text-2xl shadow-md`} onClick={handleButtonClick}>
+              <div className="z-10 flex h-full w-full items-center justify-center">
+                <div>Join Presale</div>
+              </div>
+            </button>
+            {showBuy && <div><LiquiditySwapCard2
           loading={loading}
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
@@ -347,7 +353,8 @@ function presale() {
           getDepositValue={getDepositValue}
           swapOrApprove={swapOrApprove}
           USDTBalance={(+ethers.utils.formatEther(contractInfo.usdtbalance)).toFixed(2)}
-        />
+        /></div>}
+          </div>    
       </main>
       <div className='flex justify-center w-screen'>
       <section className="bg-gray-50 grid justify-center w-screen grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
@@ -382,5 +389,17 @@ function presale() {
     </div>
   );
 }
+
+        {/* Vesting & purchase info
+        <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Your Holdings
+                </span>
+                <span className="text-right">
+                {(+ethers.utils.formatUnits(vestInfo.amount, 18)).toLocaleString()
+                  }{" "}
+                  QNTFI
+                </span>
+              </div>*/}
 
 export default presale;
