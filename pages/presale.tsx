@@ -1,8 +1,12 @@
 import { fetchSigner } from "@wagmi/core";
 import { BigNumber, ethers } from "ethers";
 import React, { useEffect, useState } from "react";
-
+import Introduction from "../components//presale/Introduction";
+import PitchDeck from "../components/presale/PitchDeck";
+import Raises from "../components/presale/Raises";
+import ProgressBar from '../components/presale/ProgressBar';
 import LiquiditySwapCard2 from "../components/swap/LiquiditySwapCardPresale";
+import ModelInfo from "../components/presale/ModelInfo";
 import { timeout } from "../components/utils/timeout";
 import seedRoundABI from "../components/abi/seedRound.json";
 import erc20ABI from "../components/abi/erc20.json";
@@ -262,17 +266,28 @@ function presale() {
   return (
     <div className="flex w-screen flex-col justify-center bg-black">
       <header className="flex w-full justify-center text-center">
-        <div className="prose">
-          <h1 className="pt-4 text-slate-50">QNTFI Token Presale</h1>
-        </div>
+      <div className="pt-4 text-5xl font-extrabold sm:text-7xl ">
+        <span className="text-slate-300 drop-shadow-md bg-clip-text ">QuantiFi Investors</span>
+      </div>
       </header>
-      <main className="flex w-full flex-col items-center justify-center">
+      <div className="flex justify-center">
+      <main className="grid justify-center w-screen max-w-5xl grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
+      <div className="col-span-2 sm:col-span-1">
+            <Introduction />
+          </div>
+
+          <div className="h-64 col-span-2 sm:col-span-1">
+            <PitchDeck />
+          </div>
+        </main>
+          </div>
+          <main className="flex w-full flex-col items-center justify-center">
       {/* Information text */}
         <div className="relative flex min-h-fit snap-start items-center justify-center overflow-x-clip py-8 align-middle">
         <PurpleBlueGradientCombined className="absolute scale-125 animate-pulse-slow sm:scale-100" />
         <div className="mx-2 text-center align-middle text-gray-200">
           <div className="mt-3 mr-0 text-center sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-2xl lg:mx-0">
-            <span className="mr-0 drop-shadow">The 1st round of the QNTFI Presale will begin on Wednesday 29 March at 12pm UTC. 5% of the total supply (10 mil) tokens will be sold at 5c each. Participation is open on a first-in first-served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months.</span>
+            <span className="mr-0 drop-shadow">The QNTFI Presale Round 1 begins on Wednesday 19 April at 12pm UTC. 5% of the total supply (10 mil) tokens will be sold at $0.05. Participation is open on a first-in first-served basis. All tokens purchased will be immediately vested, and can be claimed progressively over the following 12 months. <span className="font-bold">Connect Wallet</span> to join or see below for more information.</span>
           </div>
         </div>
       </div>
@@ -281,25 +296,32 @@ function presale() {
         {/* Sale Progress */}
           <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
             {/* Title */}
-            <div className="mb-2 text-xl font-bold">Current Sale Event</div>
+            <div className="flex justify-between">
+            <span className="mb-2 text-xl font-bold">Status: Presale 1 </span>
+            <span className="text-right mb-2 text-l font-bold">Sale Price: $0.05</span>
+            </div>
             <div>
               <div className="flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Sale Price
-                </span>
-                <span className="text-right">
-                  ${(+ethers.utils.formatUnits(contractInfo.salePrice, 18)).toFixed(3)}
-                </span>
-              </div>
-
-              <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  QNTFI Remaining in Sale
+                  QNTFI Sold in Sale
                 </span>
                 <span className="text-right">
                   {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 10,000,000
                 </span>
               </div>
+              <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  USD Raised in Sale
+                </span>
+                <span className="text-right">
+                  ${((+ethers.utils.formatUnits(contractInfo.tokensForSale, 18))/20).toFixed(2)} / $500,000
+                </span>
+              </div>
+              <div className="justify-between">
+          <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100} />
+          </span>
+        </div>
             </div>
           </div>
           {/* Holdings */}
@@ -345,6 +367,28 @@ function presale() {
           USDTBalance={(+ethers.utils.formatEther(contractInfo.usdtbalance)).toFixed(2)}
         />
       </main>
+      <div className='flex justify-center w-screen'>
+      <section className="bg-gray-50 grid justify-center w-screen grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
+      <div className="text-center pt-4 text-3xl font-extrabold col-span-2">
+        <span className="text-slate-700 drop-shadow-md bg-clip-text ">Supporting Information</span>
+      </div>
+      <div className="flex justify-center col-span-2 mt-4">
+            <Raises />
+          </div>
+      
+          <div className="justify-center col-span-2 sm:col-span-1">
+      <ModelInfo
+        heading="About the Trading Model"
+        content="The licenced strategy is designed to observe and extract insightful patterns from price data in an unconventional and sophisticated manner, allowing it to uncover opportunities that may be obscured to traditional manual application.
+        By leveraging the opportunities identified by the model, QuantiFi is able to gain an advantage and execute systematically, capitalizing on the inherent limitations of human behavior."
+      /></div>
+      <div className="justify-center col-span-2 sm:col-span-1">
+      <ModelInfo
+        heading="What to expect from the model?"
+        content="The model is designed to trade assets that are highly liquid and offers compounded returns beyond 3x of the benchmark (BTC) on an annual basis, while managing downside risk. With an emphasis on recovery from drawdown by actioning opportunities systematically, maximum losses are mostly kept inside single digits. On average, the strategy is invested less than 50% of the time while maintaining only 1/3 of the volatility of the benchmark (BTC), allowing for greater returns with lower risk."
+      />
+      </div>
+      </section></div>
       {/* Notification */}
       <Notification
         title={notificationTitle}
