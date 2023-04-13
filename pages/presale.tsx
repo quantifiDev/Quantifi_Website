@@ -364,9 +364,9 @@ function presale() {
           <div className="text-center pt-2 text-3xl font-extrabold col-span-2">
         <span className="text-slate-700 drop-shadow-md bg-clip-text ">Trading Model Performance vs Benchmark</span>
       </div>
-          <div className="justify-center col-span-2">
+          <div className="flex items-center justify-center col-span-2">
             <Image 
-            className="h-full w-full object-cover "
+            className="h-full w-full max-w-4xl object-cover "
             src="/model_perf.png" 
             width={500}
             height={500} ></Image>
