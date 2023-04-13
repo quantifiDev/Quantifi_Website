@@ -13,11 +13,8 @@ import erc20ABI from "../components/abi/erc20.json";
 import vestingABI from "../components/abi/vesting.json";
 import { useAccount, useProvider } from "wagmi";
 import Notification, { NotificationContent } from "../components/Notification";
-import {
-  BlueGradient,
-  PurpleBlueGradientCombined,
-  PurpleGradient,
-} from "../components/svg/GradientCircles";
+import { CustomConnectButton } from "../components/buttons/CustomConnectButton";
+
 function presale() {
   const [showNotification, setNotificationShow] = useState(false);
   const [notificationStatus, setNotificationStatus] =
@@ -335,8 +332,9 @@ function presale() {
             </div>
           </div>
         </div>
+        <CustomConnectButton />
         <div className="my-5 flex w-full justify-center">
-              <button className={`${showBuy ? 'hidden' : ''} btnAnimated font-lg prose h-14 w-8/12 rounded-2xl text-2xl shadow-md`} onClick={handleButtonClick}>
+              <button className={`${showBuy ? 'hidden' : ''} btnAnimated font-lg prose max-w-lg h-14 w-8/12 rounded-2xl text-2xl shadow-md`} onClick={handleButtonClick}>
               <div className="z-10 flex h-full w-full items-center justify-center">
                 <div>Join Presale</div>
               </div>
