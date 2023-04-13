@@ -7,7 +7,8 @@ import Raises from "../components/presale/Raises";
 import ProgressBar from '../components/presale/ProgressBar';
 import LiquiditySwapCard2 from "../components/swap/LiquiditySwapCardPresale";
 import ModelInfo from "../components/presale/ModelInfo";
-import Image, { StaticImageData } from "next/future/image";
+import Image from "next/future/image";
+import image1 from "../public/model_perf.png";
 import { timeout } from "../components/utils/timeout";
 import seedRoundABI from "../components/abi/seedRound.json";
 import erc20ABI from "../components/abi/erc20.json";
@@ -366,7 +367,7 @@ function presale() {
           <div className="justify-center col-span-2">
             <Image 
             className="h-full w-full object-cover "
-            src="/../public/model_perf.png" 
+            src="/model_perf.png" 
             width={500}
             height={500} ></Image>
       </div>
