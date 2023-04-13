@@ -7,6 +7,7 @@ import Raises from "../components/presale/Raises";
 import ProgressBar from '../components/presale/ProgressBar';
 import LiquiditySwapCard2 from "../components/swap/LiquiditySwapCardPresale";
 import ModelInfo from "../components/presale/ModelInfo";
+import Image, { StaticImageData } from "next/future/image";
 import { timeout } from "../components/utils/timeout";
 import seedRoundABI from "../components/abi/seedRound.json";
 import erc20ABI from "../components/abi/erc20.json";
@@ -356,24 +357,18 @@ function presale() {
       </main>
       <div className='flex justify-center w-screen'>
       <section className="bg-gray-50 grid justify-center w-screen grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
-      <div className="text-center pt-4 text-3xl font-extrabold col-span-2">
-        <span className="text-slate-700 drop-shadow-md bg-clip-text ">Supporting Information</span>
-      </div>
       <div className="flex justify-center col-span-2 mt-4">
             <Raises />
           </div>
-      
-          <div className="justify-center col-span-2 sm:col-span-1">
-      <ModelInfo
-        heading="About the Trading Model"
-        content="The licenced strategy is designed to observe and extract insightful patterns from price data in an unconventional and sophisticated manner, allowing it to uncover opportunities that may be obscured to traditional manual application.
-        By leveraging the opportunities identified by the model, QuantiFi is able to gain an advantage and execute systematically, capitalizing on the inherent limitations of human behavior."
-      /></div>
-      <div className="justify-center col-span-2 sm:col-span-1">
-      <ModelInfo
-        heading="What to expect from the model?"
-        content="The model is designed to trade assets that are highly liquid and offers compounded returns beyond 3x of the benchmark (BTC) on an annual basis, while managing downside risk. With an emphasis on recovery from drawdown by actioning opportunities systematically, maximum losses are mostly kept inside single digits. On average, the strategy is invested less than 50% of the time while maintaining only 1/3 of the volatility of the benchmark (BTC), allowing for greater returns with lower risk."
-      />
+          <div className="text-center pt-2 text-3xl font-extrabold col-span-2">
+        <span className="text-slate-700 drop-shadow-md bg-clip-text ">Trading Model Performance vs Benchmark</span>
+      </div>
+          <div className="justify-center col-span-2">
+            <Image 
+            className="h-full w-full object-cover "
+            src="/../public/model_perf.png" 
+            width={500}
+            height={500} ></Image>
       </div>
       </section></div>
       {/* Notification */}
@@ -398,6 +393,19 @@ function presale() {
                   }{" "}
                   QNTFI
                 </span>
-              </div>*/}
+              </div>
+              
+              Old Modals
+              
+              <ModelInfo
+        heading="About the Trading Model"
+        content="The licenced strategy is designed to observe and extract insightful patterns from price data in an unconventional and sophisticated manner, allowing it to uncover opportunities that may be obscured to traditional manual application.
+        By leveraging the opportunities identified by the model, QuantiFi is able to gain an advantage and execute systematically, capitalizing on the inherent limitations of human behavior."
+      /></div>
+      <div className="justify-center col-span-2 sm:col-span-1">
+      <ModelInfo
+        heading="What to expect from the model?"
+        content="The model is designed to trade assets that are highly liquid and offers compounded returns beyond 3x of the benchmark (BTC) on an annual basis, while managing downside risk. With an emphasis on recovery from drawdown by actioning opportunities systematically, maximum losses are mostly kept inside single digits. On average, the strategy is invested less than 50% of the time while maintaining only 1/3 of the volatility of the benchmark (BTC), allowing for greater returns with lower risk."
+      />*/}
 
 export default presale;
