@@ -292,7 +292,7 @@ function presale() {
         </div>
       </div>
         {/* Cards */}
-        <div className="my-10 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
+        <div className="my-3 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
         {/* Sale Progress */}
           <div className="my-3 mx-7 h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
             {/* Title */}
@@ -301,9 +301,19 @@ function presale() {
             <span className="text-right mb-2 text-l font-bold">Sale Price: $0.05</span>
             </div>
             <div>
+            <div className="flex justify-between">
+                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
+                  Your Holdings
+                </span>
+                <span className="text-right">
+                {(+ethers.utils.formatUnits(vestInfo.amount, 18)).toLocaleString()
+                  }{" "}
+                  QNTFI
+                </span>
+              </div>
               <div className="flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  QNTFI Sold in Sale
+                  QNTFI Sold
                 </span>
                 <span className="text-right">
                   {(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)).toFixed(2)} / 10,000,000
@@ -311,7 +321,7 @@ function presale() {
               </div>
               <div className="flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  USD Raised in Sale
+                  USD Raised
                 </span>
                 <span className="text-right">
                   ${((+ethers.utils.formatUnits(contractInfo.tokensForSale, 18))/20).toFixed(2)} / $500,000
@@ -319,37 +329,9 @@ function presale() {
               </div>
               <div className="justify-between">
           <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100} />
+          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100+1} />
           </span>
         </div>
-            </div>
-          </div>
-          {/* Holdings */}
-          <div className="my-3 mx-7 min-h-full w-full max-w-lg overflow-hidden rounded-lg bg-neutral-100 px-6 py-4 text-gray-900 shadow-lg ">
-            {/* Title */}
-            <div className="mb-2 text-xl font-bold">Your Vested Tokens</div>
-            <div>
-              <div className="flex justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Tokens
-                </span>
-                <span className="text-right">
-                  {
-                    (+ethers.utils.formatUnits(vestInfo.amount, 18)).toLocaleString()
-                  }{" "}
-                  QNTFI
-                </span>
-              </div>
-
-              <div className="flex h-full justify-between">
-                <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
-                  Eligible to Claim
-                </span>
-                <span className="text-right">
-                  {"0 "}
-                  QNTFI
-                </span>
-              </div>
             </div>
           </div>
         </div>
