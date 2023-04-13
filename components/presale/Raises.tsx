@@ -26,7 +26,7 @@ function Raises() {
         </div>
   
         {/* Single Card */}
-        <div className="flex-col w-full col-span-3 sm:col-span-1">
+        <div className="flex-col w-full col-span-3 prose sm:col-span-1">
           <div className="z-20 -mb-3 text-center">
             <span className="inline-block text-base antialiased font-bold bg-white max-w-[80%]">
               Presale Round #2
@@ -50,7 +50,7 @@ function Raises() {
         </div>
   
         {/* Single Card */}
-        <div className="flex-col w-full col-span-3 sm:col-span-1">
+        <div className="flex-col w-full col-span-3 prose sm:col-span-1">
           <div className="z-20 -mb-3 text-center">
             <span className="inline-block text-base antialiased font-bold bg-white w-full max-w-[80%] ">
               DEX Trading Launch
