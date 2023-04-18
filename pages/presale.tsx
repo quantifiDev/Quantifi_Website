@@ -271,7 +271,7 @@ function presale() {
       <div className="flex items-center justify-center col-span-2">
             <Image 
             className="hidden sm:block h-full w-full max-w-4xl object-cover "
-            src="/presale_desktop.jpg" 
+            src="/presale_desktop.png" 
             width={500}
             height={500} ></Image>
             <Image 
