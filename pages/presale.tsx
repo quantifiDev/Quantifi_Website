@@ -6,9 +6,7 @@ import PitchDeck from "../components/presale/PitchDeck";
 import Raises from "../components/presale/Raises";
 import ProgressBar from '../components/presale/ProgressBar';
 import LiquiditySwapCard2 from "../components/swap/LiquiditySwapCardPresale";
-import ModelInfo from "../components/presale/ModelInfo";
 import Image from "next/future/image";
-import image1 from "../public/model_perf.png";
 import { timeout } from "../components/utils/timeout";
 import seedRoundABI from "../components/abi/seedRound.json";
 import erc20ABI from "../components/abi/erc20.json";
@@ -270,8 +268,17 @@ function presale() {
   return (
     <div className="flex w-screen flex-col justify-center bg-black">
       <header className="flex w-full justify-center text-center">
-      <div className="pt-4 text-5xl font-extrabold sm:text-7xl ">
-        <span className="text-slate-300 drop-shadow-md bg-clip-text ">QuantiFi Investors</span>
+      <div className="flex items-center justify-center col-span-2">
+            <Image 
+            className="hidden sm:block h-full w-full max-w-4xl object-cover "
+            src="/presale_desktop.jpg" 
+            width={500}
+            height={500} ></Image>
+            <Image 
+            className="block sm:hidden h-full w-full max-w-4xl object-cover "
+            src="/presale_mobile.jpg" 
+            width={300}
+            height={300} ></Image>
       </div>
       </header>
       <div className="flex justify-center">
@@ -367,7 +374,7 @@ function presale() {
           <div className="flex items-center justify-center col-span-2">
             <Image 
             className="h-full w-full max-w-4xl object-cover "
-            src="/model_perf.png" 
+            src="/model_perf.svg" 
             width={500}
             height={500} ></Image>
       </div>
