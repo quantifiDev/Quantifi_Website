@@ -272,13 +272,13 @@ function MyPage() {
     <>
       {/* Exchange */}
       <div className="min-h-screen">
-        <div className="md:flex md:items-center md:justify-between">
+        <div className="flex items-center justify-between">
           <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:flex lg:justify-between lg:px-8">
             <div className="min-w-0 flex-1">
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-bold text-center tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Quantifi Investor Fund
               </h2>
-              <h4 className="text-xl font-bold tracking-tight text-white sm:text-xl lg:text-xl">
+              <h4 className="text-xl font-bold text-center tracking-tight text-white sm:text-xl lg:text-xl">
                 **Deposits Paused Pending Presale
               </h4>
             </div>
@@ -363,7 +363,7 @@ function MyPage() {
         </div>
 
         {/* Information text */}
-        <div className="bg-gray-800">
+        <div className="bg-gray-800 ">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
             <div className="max-w-2xl">
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -404,7 +404,7 @@ function MyPage() {
         </div>
 
         {/* Swap */}
-        <div className="flex justify-center">
+        <div className="flex justify-center px-4">
           <LiquiditySwapCard
             loading={loading}
             currentTab={currentTab}

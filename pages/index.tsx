@@ -60,7 +60,7 @@ function HomePage() {
                 <div className="z-20 mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
                   {/* Get started button */}
                   <div>
-                    <button className="flex h-full w-full items-center justify-center rounded-lg bg-gradient-to-r from-[#4FC0FF] via-[#6977EE] to-[#FF6098] px-8 py-3 text-base font-medium text-white transition-all duration-75 ease-in hover:opacity-80 md:py-4 md:px-10 md:text-lg">
+                    <button className="btnAnimated flex h-full w-full items-center justify-center rounded-lg bg-gradient-to-r from-[#4FC0FF] via-[#6977EE] to-[#FF6098] px-8 py-3 text-base font-medium text-white transition-all duration-75 ease-in hover:opacity-80 md:py-4 md:px-10 md:text-lg">
                       <a href="qit-fund" className="h-full w-full">
                         Get started
                       </a>
