@@ -343,7 +343,7 @@ function presale() {
           </div>
         </div>
         <div className="my-5 px-4 flex w-full justify-center">
-              <button className={`${showBuy ? 'hidden' : ''} btnAnimated font-lg prose max-w-lg h-14 w-8/12 rounded-2xl text-2xl shadow-md`} onClick={handleButtonClick}>
+              <button className={`${showBuy ? 'hidden' : ''} px-4 flex items-center justify-center rounded-md border-sky-300 border-2 bg-gray-900 px-8 py-3 text-2xl text-neutral-100 hover:bg-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-700 md:py-3.5 md:px-8`} onClick={handleButtonClick}>
               <div className="z-10 flex h-full w-full items-center justify-center">
                 <div>Join Presale</div>
               </div>
