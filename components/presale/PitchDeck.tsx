@@ -1,7 +1,7 @@
 function PitchDeck() {
   return (
     <>
-      <h2 className="w-full mb-2 text-2xl font-medium prose text-center">Welcome Video</h2>
+      <h2 className="w-full mb-2 text-2xl font-medium text-sky-300 text-center">Welcome Video</h2>
       <iframe
         className="w-full h-full rounded-xl overflow-auto scrollbar-hide"
         scrolling="no"

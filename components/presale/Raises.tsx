@@ -1,8 +1,8 @@
 function Raises() {
     return (
-      <div className="grid items-center justify-center w-screen max-w-5xl grid-cols-3 gap-10">
+      <div className="px-4 grid items-center justify-center w-screen max-w-5xl grid-cols-3 gap-10">
         {/* Single Card */}
-        <div className="flex-col w-full col-span-3 prose sm:col-span-1">
+        <div className="hover:-translate-y-1 hover:scale-110 flex-col w-full col-span-3 prose sm:col-span-1">
           <div className="z-20 -mb-3 text-center">
             <span className="inline-block text-base antialiased font-bold bg-white max-w-[80%]">
               Presale Round #1
@@ -26,7 +26,7 @@ function Raises() {
         </div>
   
         {/* Single Card */}
-        <div className="flex-col w-full col-span-3 prose sm:col-span-1">
+        <div className="hover:-translate-y-1 hover:scale-110 flex-col w-full col-span-3 prose sm:col-span-1">
           <div className="z-20 -mb-3 text-center">
             <span className="inline-block text-base antialiased font-bold bg-white max-w-[80%]">
               Presale Round #2
@@ -50,7 +50,7 @@ function Raises() {
         </div>
   
         {/* Single Card */}
-        <div className="flex-col w-full col-span-3 prose sm:col-span-1">
+        <div className="hover:-translate-y-1 hover:scale-110 flex-col w-full col-span-3 prose sm:col-span-1">
           <div className="z-20 -mb-3 text-center">
             <span className="inline-block text-base antialiased font-bold bg-white w-full max-w-[80%] ">
               DEX Trading Launch

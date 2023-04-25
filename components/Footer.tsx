@@ -4,9 +4,9 @@ import { IoMdSettings } from "react-icons/io";
 function Footer() {
   return (
     <footer className="mt-auto bg-transparent p-4 shadow md:flex md:items-center md:justify-between md:p-6">
-      <ul className="mt-3 flex flex-wrap items-center justify-center text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+      <ul className="mt-3 flex flex-wrap items-center justify-center text-sm text-gray-200 dark:text-gray-300 sm:mt-0">
         <li>
-          <a href="#" className="ml-4 hover:underline md:mr-6 ">
+          <a href="mailto:info@quantifi.finance" className="ml-4 hover:underline md:mr-6 ">
             Contact
           </a>
         </li>
@@ -26,14 +26,7 @@ function Footer() {
       </ul>
       <div className="mt-4 flex justify-center space-x-6 md:mt-0">
         <a
-          href="https://discord.com/"
-          className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-        >
-          <FaDiscord />
-          <span className="sr-only">Discord</span>
-        </a>
-        <a
-          href="https://twitter.com/"
+          href="https://twitter.com/quantifi_1"
           className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
         >
           <FaTwitter />

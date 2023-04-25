@@ -270,7 +270,7 @@ function presale() {
       <header className="flex w-full justify-center text-center">
       <div className="flex items-center justify-center col-span-2">
             <Image 
-            className="hidden sm:block h-full w-full max-w-4xl object-cover "
+            className="animate-fadeIn hidden sm:block h-full w-full max-w-4xl object-cover "
             src="/presale_desktop.png" 
             width={500}
             height={500} ></Image>
@@ -339,16 +339,16 @@ function presale() {
                 </span>
               </div>
             </div>
+            <CustomConnectButton />
           </div>
         </div>
-        <CustomConnectButton />
-        <div className="my-5 flex w-full justify-center">
+        <div className="my-5 px-4 flex w-full justify-center">
               <button className={`${showBuy ? 'hidden' : ''} btnAnimated font-lg prose max-w-lg h-14 w-8/12 rounded-2xl text-2xl shadow-md`} onClick={handleButtonClick}>
               <div className="z-10 flex h-full w-full items-center justify-center">
                 <div>Join Presale</div>
               </div>
             </button>
-            {showBuy && <div><LiquiditySwapCard2
+            {showBuy && <div ><LiquiditySwapCard2
           loading={loading}
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
@@ -364,12 +364,12 @@ function presale() {
           </div>    
       </main>
       <div className='flex justify-center w-screen'>
-      <section className="bg-gray-50 grid justify-center w-screen grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
-      <div className="flex justify-center col-span-2 mt-4">
+      <section className="grid justify-center w-screen grid-cols-2 gap-8 py-12 mb-12 gap-y-20">
+      <div className="bg-gray-50 py-12 flex justify-center col-span-2 mt-4">
             <Raises />
           </div>
           <div className="text-center pt-2 text-3xl font-extrabold col-span-2">
-        <span className="text-slate-700 drop-shadow-md bg-clip-text ">Trading Model Performance vs Benchmark</span>
+        <span className="text-sky-300 drop-shadow-md bg-clip-text ">Trading Model Performance vs Benchmark</span>
       </div>
           <div className="flex items-center justify-center col-span-2">
             <Image 
