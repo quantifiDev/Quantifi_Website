@@ -54,9 +54,9 @@ function presale() {
     amount: BigNumber.from(0),
     claimed: BigNumber.from(0),
   });
-  
+
   const [showBuy, setShowBuy] = useState(false);
-  
+
   const handleButtonClick = () => {
     setShowBuy(true);
   };
@@ -112,10 +112,10 @@ function presale() {
 
   async function getDepositValue(value: string) {
     const number = parseInt(value, 10);
-    const numQNTFI=number*20; // price is 5c
+    const numQNTFI = number * 20; // price is 5c
     if (value !== "" || number == 0) {
       if (number >= minDeposit) {
-          setOutputValue(numQNTFI.toFixed(0));
+        setOutputValue(numQNTFI.toFixed(0));
       } else {
         setOutputValue("Min deposit is " + minDeposit);
       }
@@ -123,7 +123,7 @@ function presale() {
       setOutputValue("0");
     }
   }
-  
+
 
   function changeNotificationContent(
     title: NotificationContent["title"],
@@ -268,22 +268,22 @@ function presale() {
   return (
     <div className="flex w-screen flex-col justify-center bg-black">
       <header className="flex w-full justify-center text-center">
-      <div className="flex items-center justify-center col-span-2">
-            <Image 
+        <div className="flex items-center justify-center col-span-2">
+          <Image
             className="animate-fadeIn hidden sm:block h-full w-full max-w-4xl object-cover "
-            src="/presale_desktop.png" 
+            src="/presale_desktop.png"
             width={500}
             height={500} ></Image>
-            <Image 
+          <Image
             className="block sm:hidden h-full w-full max-w-4xl object-cover "
-            src="/presale_mobile.jpg" 
+            src="/presale_mobile.jpg"
             width={300}
             height={300} ></Image>
-      </div>
+        </div>
       </header>
       <div className="flex justify-center">
-      <main className="grid justify-center w-screen max-w-5xl grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
-      <div className="col-span-2 sm:col-span-1">
+        <main className="grid justify-center w-screen max-w-5xl grid-cols-2 gap-8 px-6 py-12 mb-12 sm:px-8 gap-y-20">
+          <div className="col-span-2 sm:col-span-1">
             <Introduction />
           </div>
 
@@ -291,9 +291,9 @@ function presale() {
             <PitchDeck />
           </div>
         </main>
-          </div>
-          <main className="flex w-full flex-col items-center justify-center">
-      {/* Information text
+      </div>
+      <main className="flex w-full flex-col items-center justify-center">
+        {/* Information text
         <div className="relative flex min-h-fit snap-start items-center justify-center overflow-x-clip py-8 align-middle">
         <PurpleBlueGradientCombined className="absolute scale-125 animate-pulse-slow sm:scale-100" />
         <div className="mx-2 text-center align-middle text-gray-200">
@@ -304,23 +304,23 @@ function presale() {
       </div>  */}
         {/* Cards */}
         <div className="my-3 flex w-full flex-col items-center justify-center px-4 sm:flex-row sm:items-start ">
-        {/* Sale Progress */}
+          {/* Sale Progress */}
           <div className="my-3 mx-7 text-center h-full w-full max-w-lg overflow-hidden rounded-lg bg-gray-900 px-6 py-4 text-neutral-100 shadow-lg ">
             {/* Title */}
             <div className="flex text-center">
-            <span className="mb-2 text-xl font-bold  w-full">April 19 - Sold Out </span>
+              <span className="mb-2 text-xl font-bold  w-full">April 19 - Sold Out </span>
             </div>
             <div className="pt-4 flex text-center">
-            <span className="mb-2 text-xl font-bold  w-full">Presale #1</span>
+              <span className="mb-2 text-xl font-bold  w-full">Presale #1</span>
             </div>
             <div className="pt-4 flex text-center">
-            <span className="mb-2 text-xl font-bold  w-full">1 QNTFI = $0.05</span>
+              <span className="mb-2 text-xl font-bold  w-full">1 QNTFI = $0.05</span>
             </div>
             <div className="pt-4 justify-between">
-          <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
-          <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100+1} />
-          </span>
-        </div>
+              <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
+                <ProgressBar percent={(+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 10000000 * 100 + 1} />
+              </span>
+            </div>
             <div>
               <div className="pt-2 flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-neutral-100">
@@ -335,7 +335,7 @@ function presale() {
                   USD Raised
                 </span>
                 <span className="text-right">
-                  ${((+ethers.utils.formatUnits(contractInfo.tokensForSale, 18))/20).toFixed(2)} / $500,000
+                  ${((+ethers.utils.formatUnits(contractInfo.tokensForSale, 18)) / 20).toFixed(2)} / $500,000
                 </span>
               </div>
             </div>
@@ -343,42 +343,46 @@ function presale() {
           </div>
         </div>
         <div className="my-5 px-4 flex w-full justify-center">
-              <button className={`${showBuy ? 'hidden' : ''} px-4 flex items-center justify-center rounded-md border-sky-300 border-2 bg-gray-900 px-8 py-3 text-2xl text-neutral-100 hover:bg-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-700 md:py-3.5 md:px-8`} onClick={handleButtonClick}>
-              <div className="z-10 flex h-full w-full items-center justify-center">
-                <div>Join Presale</div>
-              </div>
-            </button>
-            {showBuy && <div ><LiquiditySwapCard2
-          loading={loading}
-          currentTab={currentTab}
-          setCurrentTab={setCurrentTab}
-          resetOutputValue={resetOutputValue}
-          swapButtonText={swapButtonText}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          outputValue={outputValue}
-          getDepositValue={getDepositValue}
-          swapOrApprove={swapOrApprove}
-          USDTBalance={(+ethers.utils.formatEther(contractInfo.usdtbalance)).toFixed(2)}
-        /></div>}
-          </div>    
+          <button className={`${showBuy ? 'hidden' : ''} px-4 flex items-center justify-center rounded-md border-sky-300 border-2 bg-gray-900 px-8 py-3 text-2xl text-neutral-100 hover:bg-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-700 md:py-3.5 md:px-8`} onClick={handleButtonClick}>
+            <div className="z-10 flex h-full w-full items-center justify-center">
+              <div>Join Presale</div>
+            </div>
+          </button>
+          {showBuy && <div className="flex justify-center w-screen"><LiquiditySwapCard2
+            loading={loading}
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+            resetOutputValue={resetOutputValue}
+            swapButtonText={swapButtonText}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            outputValue={outputValue}
+            getDepositValue={getDepositValue}
+            swapOrApprove={swapOrApprove}
+            USDTBalance={(+ethers.utils.formatEther(contractInfo.usdtbalance)).toFixed(2)}
+          /></div>}
+        </div>
       </main>
       <div className='flex justify-center w-screen'>
-      <section className="grid justify-center w-screen grid-cols-2 gap-8 py-12 mb-12 gap-y-20">
-      <div className="bg-gray-50 py-12 flex justify-center col-span-2 mt-4">
+        <section className="grid justify-center w-screen grid-cols-2 gap-8 py-12 mb-12 gap-y-20">
+          <div className="bg-gray-50 py-12 flex justify-center col-span-2 mt-4">
             <Raises />
           </div>
-          <div className="text-center pt-2 text-3xl font-extrabold col-span-2">
-        <span className="text-sky-300 drop-shadow-md bg-clip-text ">Trading Model Performance vs Benchmark</span>
-      </div>
+          <div className="justify-center w-screen flex col-span-2">
+            <div className="flex flex text-center items-center mb-4">
+              <img src="/bitcoin-btc-logo.svg" alt="Company 1 Logo" className="w-40 h-40 mr-8" />
+              <span className="text-3xl text-white">vs</span>
+              <img src="/logo.svg" alt="Company 2 Logo" className="w-40 h-40 ml-8" />
+            </div>
+          </div>
           <div className="flex items-center justify-center col-span-2">
-            <Image 
-            className="h-full w-full max-w-4xl object-cover "
-            src="/model_perf.svg" 
-            width={500}
-            height={500} ></Image>
-      </div>
-      </section></div>
+            <Image
+              className="h-full w-full max-w-4xl object-cover "
+              src="/model_perf.svg"
+              width={500}
+              height={500} ></Image>
+          </div>
+        </section></div>
       {/* Notification */}
       <Notification
         title={notificationTitle}
@@ -391,7 +395,7 @@ function presale() {
   );
 }
 
-        {/* Vesting & purchase info
+{/* Vesting & purchase info
         <div className="flex justify-between">
                 <span className="mb-2 mr-2 block rounded-full py-1 text-base font-semibold text-gray-700">
                   Your Holdings
